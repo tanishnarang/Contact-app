@@ -1,6 +1,7 @@
 import React from "react";
 import ContactCard from "./ContactCard";
 const ContactList = ({ contacts }) => {
+  console.log(contacts);
   const renderedContactList = contacts.map((contact) => {
     return <ContactCard contact={contact} />;
   });
