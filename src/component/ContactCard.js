@@ -1,7 +1,7 @@
 import user from "../images/user.png";
 
-const ContactCard = ({ contact }) => {
-  const { name, email } = contact;
+const ContactCard = ({ contact, clickHandler }) => {
+  const { id, name, email } = contact;
 
   return (
     <div className="item flex items-center">
@@ -13,6 +13,9 @@ const ContactCard = ({ contact }) => {
       <i
         className="trash alternate outline icon ml-auto"
         style={{ color: "red", float: "right" }}
+        onClick={() => {
+          clickHandler(id);
+        }}
       ></i>
     </div>
   );
