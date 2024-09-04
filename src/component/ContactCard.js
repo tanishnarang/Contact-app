@@ -11,7 +11,7 @@ const ContactCard = ({ contact, clickHandler }) => {
         <div>{email}</div>
       </div>
       <i
-        className="trash alternate outline icon ml-auto"
+        className="trash alternate outline icon ml-auto cursor-pointer"
         style={{ color: "red", float: "right" }}
         onClick={() => {
           clickHandler(id);

@@ -1,4 +1,5 @@
 import React from "react";
+import { withRouter } from "./withRouter";
 
 class AddContact extends React.Component {
   state = {
@@ -20,6 +21,7 @@ class AddContact extends React.Component {
 
     this.props.addContactHandler(newContact);
     this.setState({ name: "", email: "" });
+    this.props.navigate("/");
   };
 
   render() {
@@ -54,4 +56,4 @@ class AddContact extends React.Component {
   }
 }
 
-export default AddContact;
+export default withRouter(AddContact);
