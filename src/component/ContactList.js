@@ -15,7 +15,7 @@ const ContactList = ({ contacts, getContactId }) => {
     );
   });
   return (
-    <div>
+    <div style={{ margin: "0 30px" }}>
       <h2>
         Contact List
         <Link to={"/add"}>
@@ -24,6 +24,12 @@ const ContactList = ({ contacts, getContactId }) => {
           </button>
         </Link>
       </h2>
+      <div className="ui search">
+        <div className="ui icon input">
+          <input type="text" placeholder="Search Contact" className="propmt" />
+          <i className="icon search"></i>
+        </div>
+      </div>
       <div className="ui celled list">{renderedContactList}</div>
     </div>
   );

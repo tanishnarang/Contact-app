@@ -21,13 +21,15 @@ const ContactCard = ({ contact, clickHandler }) => {
           title: "Deleted!",
           text: "contact has been deleted.",
           icon: "success",
-          ButtonColor: "#2185D0",
         });
       }
     });
 
   return (
-    <div className="item flex items-center">
+    <div
+      className="item flex items-center"
+      style={{ margin: "0 20px", padding: "15px 0" }}
+    >
       <img className="ui avatar image" src={user} alt="user" />
       <div className="content flex-grow pl-2">
         <Link to={`/contact/${id}`} state={{ contact }}>
@@ -35,11 +37,17 @@ const ContactCard = ({ contact, clickHandler }) => {
           <div>{email}</div>
         </Link>
       </div>
-      <i
-        className="trash alternate outline icon ml-auto cursor-pointer"
-        style={{ color: "red", float: "right" }}
-        onClick={handleDelete}
-      ></i>
+      <div style={{ cursor: "pointer" }}>
+        <i
+          className="trash alternate outline icon ml-auto cursor-pointer"
+          style={{ color: "red", float: "right", marginRight: "30px" }}
+          onClick={handleDelete}
+        ></i>
+        <i
+          className="edit alternate outline icon ml-auto cursor-pointer"
+          style={{ color: "blue", float: "right", marginRight: "10px" }}
+        ></i>
+      </div>
     </div>
   );
 };

@@ -31,7 +31,7 @@ export default function App() {
     localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(contacts));
   }, [contacts]);
   return (
-    <div>
+    <div style={{ marginTop: "70px" }}>
       <Router>
         <Header />
         <Routes>
