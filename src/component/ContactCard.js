@@ -28,25 +28,39 @@ const ContactCard = ({ contact, clickHandler }) => {
   return (
     <div
       className="item flex items-center"
-      style={{ margin: "0 20px", padding: "15px 0" }}
+      style={{ margin: "0 20px", padding: "13px 0" }}
     >
       <img className="ui avatar image" src={user} alt="user" />
       <div className="content flex-grow pl-2">
         <Link to={`/contact/${id}`} state={{ contact }}>
-          <div className="header">{name}</div>
+          <div className="header" style={{ fontSize: "16px" }}>
+            {name}
+          </div>
           <div>{email}</div>
         </Link>
       </div>
       <div style={{ cursor: "pointer" }}>
         <i
           className="trash alternate outline icon ml-auto cursor-pointer"
-          style={{ color: "red", float: "right", marginRight: "30px" }}
+          style={{
+            color: "red",
+            float: "right",
+            marginRight: "30px",
+            fontSize: "20px",
+          }}
           onClick={handleDelete}
         ></i>
-        <i
-          className="edit alternate outline icon ml-auto cursor-pointer"
-          style={{ color: "blue", float: "right", marginRight: "10px" }}
-        ></i>
+        <Link to={`/edit`} state={{ contact: { id, name, email } }}>
+          <i
+            className="edit alternate outline icon ml-auto cursor-pointer"
+            style={{
+              color: "blue",
+              float: "right",
+              marginRight: "10px",
+              fontSize: "20px",
+            }}
+          ></i>
+        </Link>
       </div>
     </div>
   );

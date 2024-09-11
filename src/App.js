@@ -5,12 +5,21 @@ import Header from "./component/Header";
 import AddContact from "./component/AddContact";
 import ContactList from "./component/ContactList";
 import ContactDetails from "./component/ContactDetails";
+import EditContact from "./component/EditContact";
 
 export default function App() {
   const LOCAL_STORAGE_KEY = "contacts";
   const [contacts, setContacts] = useState([]);
   const addContactHandler = (contact) => {
     setContacts([...contacts, { id: uuidv4(), ...contact }]);
+  };
+
+  const updateContactHandler = (updatedContact) => {
+    setContacts(
+      contacts.map((contact) =>
+        contact.id === updatedContact.id ? updatedContact : contact
+      )
+    );
   };
 
   const removeContactHandler = (id) => {
@@ -47,6 +56,13 @@ export default function App() {
           <Route
             path="/add"
             element={<AddContact addContactHandler={addContactHandler} />}
+          />
+
+          <Route
+            path="/edit"
+            element={
+              <EditContact updateContactHandler={updateContactHandler} />
+            }
           />
           <Route path="/contact/:id" Component={ContactDetails} />
         </Routes>
